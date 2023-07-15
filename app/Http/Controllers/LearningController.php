@@ -7,6 +7,17 @@ use App\Models\User;
 
 class LearningController extends Controller
 {
+    public function index(Request $request)
+    {
+        // $learnings = $request->user()->learnings()->get();
+        $user = User::find(1);
+        $learnings = $user->learnings()->latest()->get();
+
+        return response()->json([
+            'learnings' => $learnings,
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate([

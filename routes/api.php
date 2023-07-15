@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/learnings', 'App\Http\Controllers\LearningController@index');
 Route::post('/learnings', 'App\Http\Controllers\LearningController@create');
