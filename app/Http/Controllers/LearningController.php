@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Learning;
 
 class LearningController extends Controller
 {
@@ -15,6 +16,15 @@ class LearningController extends Controller
 
         return response()->json([
             'learnings' => $learnings,
+        ]);
+    }
+
+    public function show(Request $request, $id)
+    {
+        $learning = Learning::findOrFail($id);
+
+        return response()->json([
+            'learning' => $learning,
         ]);
     }
 
