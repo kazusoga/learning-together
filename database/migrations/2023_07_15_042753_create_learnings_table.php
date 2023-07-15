@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->string('detail');
+            $table->text('detail');
             $table->boolean('helping')->default(false);
             $table->boolean('recruiting')->default(false);
             $table->timestamps();
