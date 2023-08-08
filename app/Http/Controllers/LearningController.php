@@ -45,4 +45,16 @@ class LearningController extends Controller
             'learning' => $learning,
         ]);
     }
+
+    public function help(Request $request, $id)
+    {
+        $learning = Learning::findOrFail($id);
+
+        $learning->helping = !$learning->helping;
+        $learning->save();
+
+        return response()->json([
+            'learning' => $learning,
+        ]);
+    }
 }

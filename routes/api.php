@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/learnings', 'App\Http\Controllers\LearningController@index');
 Route::get('/learnings/{id}', 'App\Http\Controllers\LearningController@show');
 Route::post('/learnings', 'App\Http\Controllers\LearningController@create');
+Route::put('/learnings/{id}/help', 'App\Http\Controllers\LearningController@help');
