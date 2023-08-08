@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Learning;
+
+class LearningController extends Controller
+{
+    public function index(Request $request)
+    {
+        // $learnings = $request->user()->learnings()->get();
+        $user = User::find(1);
+        $learnings = $user->learnings()->latest()->get();
+
+        return response()->json([
+            'learnings' => $learnings,
+        ]);
+    }
+
+    public function show(Request $request, $id)
+    {
+        $learning = Learning::findOrFail($id);
+
+        return response()->json([
+            'learning' => $learning,
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'detail' => 'required|string',
+            'helping' => 'boolean',
+            'recruiting' => 'boolean',
+        ]);
+
+        // $learning = $request->user()->learnings()->create($request->all());
+        $user = User::find(1);
+        $learning = $user->learnings()->create($request->all());
+
+        return response()->json([
+            'learning' => $learning,
+        ]);
+    }
+}
