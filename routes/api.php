@@ -24,3 +24,4 @@ Route::post('/learnings', 'App\Http\Controllers\LearningController@create');
 Route::put('/learnings/{id}/help', 'App\Http\Controllers\LearningController@help');
 Route::post('/login', 'App\Http\Controllers\LoginController');
 Route::post('/register', 'App\Http\Controllers\RegisterController');
+Route::post('/logout', 'App\Http\Controllers\LogoutController');
