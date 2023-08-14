@@ -10,7 +10,7 @@ class LearningController extends Controller
 {
     public function index(Request $request)
     {
-        $learnings = Learning::all();
+        $learnings = Learning::orderBy('created_at', 'desc')->get();
 
         return response()->json([
             'learnings' => $learnings,
