@@ -35,9 +35,7 @@ class LearningController extends Controller
             'recruiting' => 'boolean',
         ]);
 
-        // $learning = $request->user()->learnings()->create($request->all());
-        $user = User::find(1);
-        $learning = $user->learnings()->create($request->all());
+        $learning = $request->user()->learnings()->create($request->all());
 
         return response()->json([
             'learning' => $learning,
