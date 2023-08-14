@@ -10,9 +10,7 @@ class LearningController extends Controller
 {
     public function index(Request $request)
     {
-        // $learnings = $request->user()->learnings()->get();
-        $user = User::find(1);
-        $learnings = $user->learnings()->latest()->get();
+        $learnings = Learning::all();
 
         return response()->json([
             'learnings' => $learnings,
