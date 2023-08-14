@@ -27,4 +27,4 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/learnings', 'App\Http\Controllers\LearningController@index');
 Route::get('/learnings/{id}', 'App\Http\Controllers\LearningController@show');
 
-Route::post('/logout', 'App\Http\Controllers\LogoutController');
+Route::post('/login', 'App\Http\Controllers\LoginController');
